@@ -16,6 +16,7 @@ clean:
 	rm -f TestAustralia_voting
 	rm -f TestAustralia_voting.tmp
 	rm -f solution
+	rm -f *~
 
 config:
 	git config -l

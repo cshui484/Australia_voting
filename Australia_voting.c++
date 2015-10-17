@@ -83,7 +83,7 @@ vector<int> allIndex(vector<int>& v, int n, int bIdx = 0) {
 // australia_voting_eval
 // ------------
 
-void australia_voting_eval (AVcase& avCase) {
+void australia_voting_eval (AVcase& avCase, ostream& w) {
 
 	vector< vector<int> >	c2bNum(avCase.cNo+1);		// entry 0 is not used
 	vector<int>				c2bCnt(avCase.cNo+1);
@@ -117,7 +117,7 @@ printVec(c2bCnt);
 		maxCnt = maxValue(c2bCnt, 1);
 		if (maxCnt >= wCnt) {							// we got a winner
 			wIdx = index(c2bCnt, maxCnt, 1);
-			cout << avCase.cNames[wIdx-1] << endl;
+			w << avCase.cNames[wIdx-1] << endl;
 			return; }
 		minCnt = minValue(c2bCnt, 1);
 //cout << "minCnt = " << minCnt << endl;
@@ -131,7 +131,7 @@ printVec(c2bCnt);
 		newLosers = allIndex(c2bCnt, minCnt, 1);
 		if (maxCnt == minCnt) {							// tied, no winner
 			for (int i : newLosers) {
-				cout << avCase.cNames[i-1] << endl; }
+				w << avCase.cNames[i-1] << endl; }
 			return; }
 			
 /*
@@ -240,7 +240,7 @@ void australia_voting_solve (istream& r, ostream& w) {
 			
 //avCase.print();
 
-		australia_voting_eval(avCase);
+		australia_voting_eval(avCase, w);
 		if (i < numCase - 1) {
-			cout << endl; }}}
+			w << endl; }}}
 
